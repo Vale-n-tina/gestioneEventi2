@@ -20,7 +20,8 @@ public class Evento {
 	private int massimoPartecipanti;
 	@Column(name = "descrizione")
 	private String descrizione;
-  @ManyToOne
+
+	@ManyToOne
   @JoinColumn(name = "locationn")
   private Location location;
 
@@ -28,12 +29,21 @@ public class Evento {
 
 	}
 
-	public Evento(LocalDate dataEvento, int massimoPartecipanti, String tipoEvento, String titolo, String descrizione) {
-		this.dataEvento = dataEvento;
+	public Evento(Location location, String descrizione, int massimoPartecipanti, String tipoEvento, LocalDate dataEvento, String titolo) {
+		this.location = location;
+		this.descrizione = descrizione;
 		this.massimoPartecipanti = massimoPartecipanti;
 		this.tipoEvento = tipoEvento;
+		this.dataEvento = dataEvento;
 		this.titolo = titolo;
-		this.descrizione = descrizione;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 	public long getId() {

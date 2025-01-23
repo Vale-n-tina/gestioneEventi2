@@ -44,12 +44,14 @@ public class Main {
 
 
 		Persona valentina = new Persona("f", LocalDate.of(2000, 03, 10), "valentina.gmail.com", "gar", "nome");
-		Evento eventoMucca = new Evento(LocalDate.of(2025, 06, 20), 100, "pubblico", "spazio", "bello");
-		Partecipazione partecipazione1 = new Partecipazione("confermato", eventoMucca, valentina);
+		Location lago=new Location("il bersagliere", "roma");
+		Evento eventoSpazio = new Evento(lago, "bello", 100, "pubblico", LocalDate.of(2025, 06, 20), "spazio");
+		Partecipazione partecipazione1 = new Partecipazione("confermato", eventoSpazio, valentina);
 		valentina.addPArtecipazioni(partecipazione1);
+		eventoSpazio.setLocation(lago);
 		System.out.println("partecipazioni di valentina: " + valentina.getListaPartecipazioni());
 
-		EntityManager en=EntityManagerUtil.getEntityManager();
+		EventoDao.save(eventoSpazio);
 
 
 
