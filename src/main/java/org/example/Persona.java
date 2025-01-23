@@ -26,8 +26,8 @@ public class Persona {
 
 	}
 
-	public Persona(List<Partecipazione> listaPartecipazioni, String sesso, LocalDate dataNascita, String email, String cognome, String nome) {
-		this.listaPartecipazioni = listaPartecipazioni;
+	public Persona( String sesso, LocalDate dataNascita, String email, String cognome, String nome) {
+
 		this.sesso = sesso;
 		this.dataNascita = dataNascita;
 		this.email = email;
@@ -89,5 +89,22 @@ public class Persona {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public void addPArtecipazioni(Partecipazione partecipazione){
+		listaPartecipazioni.add(partecipazione);
+
+	}
+
+	@Override
+	public String toString() {
+		return "Persona{" +
+				  "id=" + id +
+				  ", nome='" + nome + '\'' +
+				  ", cognome='" + cognome + '\'' +
+				  ", email='" + email + '\'' +
+				  ", dataNascita=" + dataNascita +
+				  ", sesso='" + sesso + '\'' +
+
+				  '}';
 	}
 }

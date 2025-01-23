@@ -9,10 +9,10 @@ public class Partecipazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "persona")
 	private Persona persona;
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "evento")
 	private Evento evento;
 	private String stato;
 
@@ -52,6 +52,16 @@ public class Partecipazione {
 
 	public void setPersona(Persona persona) {
 		this.persona = persona;
+	}
+
+	@Override
+	public String toString() {
+		return "Partecipazione{" +
+				  "id=" + id +
+				  ", persona=" + persona +
+				  ", evento=" + evento +
+				  ", stato='" + stato + '\'' +
+				  '}';
 	}
 }
 

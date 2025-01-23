@@ -21,7 +21,7 @@ public class Evento {
 	@Column(name = "descrizione")
 	private String descrizione;
   @ManyToOne
-  @JoinColumn(name = "id")
+  @JoinColumn(name = "locationn")
   private Location location;
 
 	public Evento() {
@@ -78,5 +78,18 @@ public class Evento {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	@Override
+	public String toString() {
+		return "Evento{" +
+				  "id=" + id +
+				  ", titolo='" + titolo + '\'' +
+				  ", dataEvento=" + dataEvento +
+				  ", tipoEvento='" + tipoEvento + '\'' +
+				  ", massimoPartecipanti=" + massimoPartecipanti +
+				  ", descrizione='" + descrizione + '\'' +
+				  ", location=" + location +
+				  '}';
 	}
 }

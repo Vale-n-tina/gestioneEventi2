@@ -2,6 +2,10 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Location {
 
 	@Id
@@ -10,7 +14,7 @@ public class Location {
 	private String nome;
 	private String citta;
 	@OneToMany(mappedBy = "location")
-	private Evento evento;
+	private List<Evento> listaEventi= new ArrayList<>();
 
 	public Location() {
 	}
