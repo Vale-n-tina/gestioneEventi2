@@ -18,14 +18,15 @@ public class Persona {
 	@Column(name = "data_nascita")
 	private LocalDate dataNascita;
 	private String sesso;
-	@Column(name = "lista_partecipazioni")
-	private List<Partecipazioni> listaPartecipazioni = new ArrayList<>();
+	@OneToMany (mappedBy = "persona")
+	@Column(name = "lista_partecipazione")
+	private List<Partecipazione> listaPartecipazioni = new ArrayList<>();
 
 	public Persona(){
 
 	}
 
-	public Persona(List<Partecipazioni> listaPartecipazioni, String sesso, LocalDate dataNascita, String email, String cognome, String nome) {
+	public Persona(List<Partecipazione> listaPartecipazioni, String sesso, LocalDate dataNascita, String email, String cognome, String nome) {
 		this.listaPartecipazioni = listaPartecipazioni;
 		this.sesso = sesso;
 		this.dataNascita = dataNascita;
@@ -42,11 +43,11 @@ public class Persona {
 		this.id = id;
 	}
 
-	public List<Partecipazioni> getListaPartecipazioni() {
+	public List<Partecipazione> getListaPartecipazioni() {
 		return listaPartecipazioni;
 	}
 
-	public void setListaPartecipazioni(List<Partecipazioni> listaPartecipazioni) {
+	public void setListaPartecipazioni(List<Partecipazione> listaPartecipazioni) {
 		this.listaPartecipazioni = listaPartecipazioni;
 	}
 

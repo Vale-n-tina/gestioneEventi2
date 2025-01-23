@@ -20,7 +20,9 @@ public class Evento {
 	private int massimoPartecipanti;
 	@Column(name = "descrizione")
 	private String descrizione;
-
+  @ManyToOne
+  @JoinColumn(name = "id")
+  private Location location;
 
 	public Evento() {
 

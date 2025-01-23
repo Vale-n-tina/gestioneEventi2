@@ -8,10 +8,50 @@ public class Partecipazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id")
 	private Persona persona;
+	@ManyToOne
 	@JoinColumn(name = "id")
 	private Evento evento;
+	private String stato;
 
+	public Partecipazione(String stato, Evento evento, Persona persona) {
+		this.stato = stato;
+		this.evento = evento;
+		this.persona = persona;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getStato() {
+		return stato;
+	}
+
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 }
+
